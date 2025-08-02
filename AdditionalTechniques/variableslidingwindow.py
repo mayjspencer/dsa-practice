@@ -1,13 +1,15 @@
+# ✅ Finds the **minimum length** of a contiguous subarray whose sum is at least `target`
 def min_subarray_len(target, arr):
     start = 0
     end = 0
     current_sum = 0
-    minlen = float('inf')
+    minlen = float('inf')  # initialize to infinity to find the minimum
 
     while end < len(arr):
         current_sum += arr[end]
         end += 1
 
+        # Shrink the window from the left while the sum is large enough
         while current_sum >= target:
             minlen = min(minlen, end - start)
             current_sum -= arr[start]
@@ -15,6 +17,8 @@ def min_subarray_len(target, arr):
 
     return minlen if minlen != float('inf') else 0
 
+
+# ✅ Finds the **maximum length** of a subarray with sum at most `k`
 def longest_subarray_with_sum_at_most_k(k, arr):
     start = 0
     current_sum = 0
@@ -23,30 +27,34 @@ def longest_subarray_with_sum_at_most_k(k, arr):
     for end in range(len(arr)):
         current_sum += arr[end]
 
-        # shrink from the left if the sum exceeds k
+        # Shrink the window from the left while the sum exceeds k
         while current_sum > k and start <= end:
             current_sum -= arr[start]
             start += 1
 
-        # check max length if valid
+        # Valid window: update max length
         maxlen = max(maxlen, end - start + 1)
 
     return maxlen
 
+
+# ✅ Counts the number of **contiguous subarrays** whose sum is strictly less than `k`
 def count_subarrays_with_sum_less_than_k(k, arr):
     count = 0
 
-    for start in range (len(arr)):
+    for start in range(len(arr)):
         current_sum = 0
 
+        # Expand the window until the sum is no longer less than k
         for end in range(start, len(arr)):
             current_sum += arr[end]
             if current_sum < k:
-                count += 1
+                count += 1  # valid subarray
             else:
-                break
+                break  # stop early if sum goes over or equals k
 
     return count
+
 
 # 🔍 Test cases
 def test_variable_size_window():

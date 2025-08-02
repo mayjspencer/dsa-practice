@@ -1,24 +1,35 @@
 import heapq
 
 def dijkstra(graph, start):
-    # Min-heap: (distance_so_far, current_node)
+    # Min-heap priority queue initialized with the start node and distance 0
     heap = [(0, start)]
+
+    # Dictionary to store the shortest known distance to each node
     distances = {}
+
+    # Set to keep track of visited nodes so we don't revisit them
     visited = set()
 
+    # Process the heap until there are no more nodes to evaluate
     while heap:
+        # Get the node with the smallest distance so far
         curr_dist, node = heapq.heappop(heap)
 
+        # Skip if we've already finalized the shortest path to this node
         if node in visited:
             continue
 
+        # Mark the node as visited and record its shortest distance
         visited.add(node)
         distances[node] = curr_dist
 
+        # Explore neighbors of the current node
         for neighbor, weight in graph.get(node, []):
             if neighbor not in visited:
+                # Add the neighbor to the heap with updated total distance
                 heapq.heappush(heap, (curr_dist + weight, neighbor))
 
+    # Return the computed shortest distances from the start node
     return distances
 
 
