@@ -118,28 +118,28 @@ This repo contains my structured, step-by-step journey through Python-based DSA 
 * Variable-size window
 * Opposite ends two-pointer technique
 
-### 🔲 Prefix Sum / Difference Arrays
+### ✅ Prefix Sum / Difference Arrays
 * Basic prefix sums
 * 2D prefix sums (matrices)
 
-### 🔲 Backtracking
+### ✅ Backtracking
 * Standard backtracking template
 * Pruning conditions
 * Permutations, combinations, subsets
 
-### 🔲 Bit Manipulation (Basic)
+### ✅ Bit Manipulation (Basic)
 * AND, OR, XOR operations
 * Bit shifts
 * Checking power of two
 
-### 🔲 Linked Lists
+### ✅ Linked Lists
 * Reverse linked list (iterative & recursive)
 * Find middle node
 * Detect cycle (Floyd’s cycle detection)
 * Merge two lists
 * Remove nth node from end
 
-### 🔲 Dynamic Programming (Intro Level)
+### ✅ Dynamic Programming (Intro Level)
 * Fibonacci sequence (memoization & tabulation)
 * Climbing stairs
 * House robber
